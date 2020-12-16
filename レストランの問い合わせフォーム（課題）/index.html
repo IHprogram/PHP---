@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+    <header>
+      <h1>DawnRestrant ~SABAMISO~</h1>
+    </header>
+
+    <div id="content">
+      <ul class="procedure">
+        <li class="choice">コース選択</li>
+        <li>予約手続き</li>
+        <li>予約完了</li>
+      </ul>
+      <ul class="image">
+        <li>
+          <img src="images/teppan.jpg" alt="てっぱん焼き" />
+        </li>
+        <li>
+          <img src="images/mountainfood.jpg" alt="山の幸" />
+        </li>
+        <li>
+          <img src="images/seafood.jpg" alt="海の幸" />
+        </li>
+        <li>
+          <img src="images/garlicrice.jpg" alt="ガーリックライス" />
+        </li>
+      </ul>
+      <!-- ➀送信方法を決めましょう -->
+      <form action="confirm.php" method="get">
+        <ul class="select">
+          <li>
+            <label>コース</label><br />
+            <!-- ➁各コース名の値(value)を！ -->
+            <select name="cose">
+              <option value="101">特選てっぱん焼きコース</option>
+              <option value="102">海の幸グリルコース</option>
+              <option value="103">山の幸グルメコース</option>
+              <option value="104">ガーリックライスコース</option>
+            </select>
+            <p>こちらから、4つのコースをお選びください</p>
+          </li>
+          <li>
+            <label>お客様人数</label><br />
+            <!-- ➂データを送るためのnameキーを書きなおしましょう -->
+            <!-- ➂最初に選択されている項目を「2名」にしておきましょう -->
+            <select name="member">
+              <option value="1">1名</option>
+              <option value="2" selected>2名</option>
+              <option value="3">3名</option>
+              <option value="4">4名</option>
+              <option value="5">5名</option>
+              <option value="6">6名</option>
+              <option value="7">7名</option>
+              <option value="8">8名</option>
+            </select>
+          </li>
+          <li>
+            <!-- ↓ ➃送信するためのボタンを設定しましょう -->
+            <input type="submit" value="次へ進む">
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <footer class="under">
+      <small>hoge@hogehoge.hri</small>
+    </footer>
+  </div>
+  </body>
+</html>
