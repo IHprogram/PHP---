@@ -45,3 +45,39 @@ for ($i = 1; $i < 11; $i++) {
   echo $i."<br>";
 }
 ?>
+
+
+
+<!-- 繰り返し処理(foreach) -->
+<?php
+$i = [1, 2, 3]; //配列
+
+//$i変数をforeach内でのみ使える$aiに置き換える
+foreach ($i as $ai) {
+  echo $ai;
+  echo "<br>";
+}
+// 出力結果↓
+// 1
+// 2
+// 3
+?>
+
+
+<?php
+// 連想配列
+$x = [
+  "りんご" => "apple", "ばなな" => "banana", "ぶどう" => "grape", "みかん" => "orage"
+];
+
+// 連想配列を順に使う
+foreach ($x as $ekkusu) {
+  echo $ekkusu."<br>";
+}
+
+//配列, ¥連想配列のキーも値として使う
+foreach ($x as $key => $ekkusu) {
+  echo "キーは「".$key."」<br>";
+  echo "値は「".$ekkusu."」<br>";
+}
+?>
