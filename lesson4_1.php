@@ -27,4 +27,24 @@ echo "でした～～。";
 // 以降の処理が中断される。
 // 代わりにcatchでくくられている処理の方を実行するという仕組みがTRY/CATCHの構文
 
+// --------------------------------------------------------
+
+// THROW句を使用した例外処理の書き方
+
+try {
+  $a = "二千四百";
+  $b = 5;
+
+  if (is_int($a) && is_int($b)) {
+      echo "お買い物の合計は";
+      echo price($a, $b);
+      echo "でした～～。";
+  } else {
+    // throw new Exception('エラーメッセージ');」が今回追加されたTHROW句と呼ばれる部分
+      throw new Exception('引数には数値以外を設定しないでください');
+  }
+} catch (Exception $e) {
+  echo $e->getMessage();
+}
+
 ?>
