@@ -9,6 +9,9 @@ define("DB_NAME", "task02");
 define("USER", "root"); // MAMPのユーザー名
 define("PASS", "root"); // MAMPのパスワード
 
+// 文字化けを防ぐ（「文字コードはutf8で対応する」という設定）
+$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'");
+
 ?>
 
 <!-- ここから、ページに表示するフロントです -->
