@@ -1,5 +1,16 @@
 <!-- URL: http://localhost:8888/ServerSideCurriculum/TASK02_on_chapter3/list.php -->
 
+
+<?php
+
+// PDO接続先の設定（後から変更できないように「定数」で定義）
+define("HOST", "localhost");
+define("DB_NAME", "task02");
+define("USER", "root"); // MAMPのユーザー名
+define("PASS", "root"); // MAMPのパスワード
+
+?>
+
 <!-- ここから、ページに表示するフロントです -->
 <!DOCTYPE html>
 <html>
