@@ -12,6 +12,9 @@ define("PASS", "root"); // MAMPのパスワード
 // 文字化けを防ぐ（「文字コードはutf8で対応する」という設定）
 $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'");
 
+// DBとの接続を開始する
+$pdo = new PDO("mysql:host=".HOST.";dbname=".DB_NAME, USER, PASS, $options);
+
 ?>
 
 <!-- ここから、ページに表示するフロントです -->
