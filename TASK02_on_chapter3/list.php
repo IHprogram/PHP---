@@ -70,7 +70,43 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // MySQLから取ってきたデー
     </head>
 
     <body>
+        <header>
+            <div class="icon">
+                <a href="#">
+                    <img src="./img/DAWN_icon.png" alt="icon">
+                </a>
+            </div>
+            <h1>リストの表示<br><span class="sub">-list-</span></h1>
+        </header>
 
+        <div id="content">
+                <table style="border-collapse: separate">
+                        <tr>
+                            <td class="id">ID</td>
+                            <td class="name">NAME</td>
+                            <td class="mail">MAIL</td>
+                            <td class="up">EDIT</td>
+                            <td class="dele">DELETE</td>
+                        </tr>
+                    <?php foreach ($result as $list) { ?>
+                        <tr>
+                            <td class="id"><?php echo $list["id"]; ?></td>
+                            <td class="name"><?php echo $list["username"]; ?></td>
+                            <td class="mail"><?php echo $list["mail"]; ?></td>
+                            <td class="up">
+                                <a href="update_form.php">
+                                    <i class="fas fa-file-alt"></i>
+                                </a>
+                            </td>
+                            <td class="dele">
+                                <a href="delete.php">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
+        </div>
     </body>
 
 </html>
