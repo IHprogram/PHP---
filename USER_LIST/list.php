@@ -1,33 +1,8 @@
 <!-- URL: http://localhost:8888/ServerSideCurriculum/TASK02_on_chapter3/list.php -->
 
-
 <?php
 
-// PDO接続先の設定（後から変更できないように「定数」で定義）
-define("HOST", "localhost");
-define("DB_NAME", "task02");
-define("USER", "root"); // MAMPのユーザー名
-define("PASS", "root"); // MAMPのパスワード
-
-// 文字化けを防ぐ（「文字コードはutf8で対応する」という設定）
-$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET CHARACTER SET 'utf8'");
-
-// DBとの接続を開始する
-$pdo = new PDO("mysql:host=".HOST.";dbname=".DB_NAME, USER, PASS, $options);
-
-// PDO機能の中にある一部の設定項目を変更
-//この矢印「->」は「$pdoの中の~という機能」という意味をもっており、PDO機能の中にある各種設定項目を選んで、機能をオンにしたり変更している
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //PDOを使ったやり取りの中でエラーが起こった場合、特定のエラー用の対応を利用する。
-$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //PDOで取り扱う値を安全にやり取りするための初期設定をオフにする
-
-
-// new PDO(データベースソフトの指定：どこに置いてあるソフトを使うのか;使用するデータベースの名前 ,ログインユーザー名 , ログインパスワード , その他オプション)
-
-// mysqlがある場所 ➡ HOST定数
-// 使用するデータベースの名前 ➡ DB_NAME定数
-// mysqlにつながるユーザ名 ➡ USER定数
-// mysqlにつながるパスワード ➡ PASS定数
-// その他オプション ➡ $option変数
+require_once("common.php");
 
 $sql = "SELECT * FROM users ORDER BY id ASC;"; // MySQLの文章を文字列として格納している
 $stmt = $pdo->query($sql); // MySQLからデータを取得。「->query(MySQLのコマンド)」を使えば、、MySQLからデータを持ってきたり、追加や削除,更新などを実行することができる。
@@ -36,14 +11,14 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // MySQLから取ってきたデー
 // 以下、$resultの中身（配列の中に連想配列が入っていると言う、多次元配列になっている）
 // $result = [
 //     0 => [
-//        “id” => “”,
-//        “username“ => “”,
-//        “mail” => “”
+//     “id” => “”,
+//     “username“ => “”,
+//     “mail” => “”
 //     ],
-//    1 => [
-//        “id” => “”,
-//        “username“ => “”,
-//        “mail” => “”
+// 1 => [
+//     “id” => “”,
+//     “username“ => “”,
+//     “mail” => “”
 //     ]
 //     ...
 // ]
@@ -110,3 +85,28 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // MySQLから取ってきたデー
     </body>
 
 </html>
+
+<!-- デバックの仕方
+$dawn = "デバック！！";
+
+var_dump($dawn);
+echo "<br>";
+print_r($dawn);
+
+$year = 2020;
+if ($year === 2019) {
+    // 表示されたら、こちらの処理が働いていることを確認できる。
+    var_dump("値が違っている");
+} else {
+    echo "<br>";
+    echo $year ;
+}
+echo "<br>";
+echo "<br>";
+
+var_dump($result[0]);
+
+echo "<br>";
+echo "<br>";
+
+print_r($result[0]); -->
