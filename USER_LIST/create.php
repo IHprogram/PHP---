@@ -4,9 +4,14 @@
 require_once("common.php");
 
 try {
-  $sql = "insert into users(usesrname, mail) values('".$name."','".$mail."')";
-  $stmt = $pdo->query($sql);
+  $sql = "insert into users(usesrname, mail) values(:name,:mail)";
 
+  // SQLインジェクションを防ぐためのプリペアドステートメント（という対策）
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":name", $name, PDO::PARAM_STR);
+  $stmt->bindValue(";mail", $mail, PDO::PARAM_STR);
+
+  $stmt->execute();
   header("Location: list.php");
   exit;
 } catch (Exception $e) {
