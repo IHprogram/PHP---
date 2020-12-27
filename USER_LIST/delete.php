@@ -6,9 +6,12 @@ require_once("common.php");
 $id = intval($_GET["id"]);
 
 try {
-  $sql = "delete from users WHERE id ='$id'";
-  $stmt = $pdo->query($sql);
-  var_dump($id);
+  // SQLインジェクションを防ぐためのプリペアドステートメント（という対策）
+  $sql = "DELETE FROM users WHERE id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+  // ↓MySQLへの命令部分
+  $stmt->execute();
 
   header("Location: list.php");
   exit;
