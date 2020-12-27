@@ -65,16 +65,16 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // MySQLから取ってきたデー
                         </tr>
                     <?php foreach ($result as $list) { ?>
                         <tr>
-                            <td class="id"><?php echo $list["id"]; ?></td>
-                            <td class="name"><?php echo $list["username"]; ?></td>
-                            <td class="mail"><?php echo $list["mail"]; ?></td>
+                            <td class="id"><?php echo htmlspecialchars($list["id"]); ?></td>
+                            <td class="name"><?php echo htmlspecialchars($list["username"]); ?></td>
+                            <td class="mail"><?php echo htmlspecialchars($list["mail"]); ?></td>
                             <td class="up">
                                 <a href="update_form.php">
                                     <i class="fas fa-file-alt"></i>
                                 </a>
                             </td>
                             <td class="dele">
-                                <a href="delete.php">
+                                <a href="delete.php?id=<?php echo htmlspecialchars($list["id"]); ?>"onclick="return confirm('このレコードを削除します。よろしいですか？')">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
