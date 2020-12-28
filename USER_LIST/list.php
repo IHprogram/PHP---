@@ -79,6 +79,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC); // MySQLから取ってきたデー
                             </a>
                         </td>
                         <td class="dele">
+                            <!-- レコードごとのIDを送れるようにし、どのレコードを削除するのか決められるようにする -->
                             <a href="delete.php?id=<?php echo htmlspecialchars($list["id"]); ?>"onclick="return confirm('このレコードを削除します。よろしいですか？')">
                                 <i class="fas fa-trash-alt"></i>
                             </a>
