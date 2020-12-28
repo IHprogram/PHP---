@@ -3,6 +3,10 @@
 
 <?php
 
+$id = intval($_GET["id"]);
+$name = $_POST["username"];
+$mail = $_POST["mail"];
+
 // PDO接続先の設定（後から変更できないように「定数」で定義）
 define("HOST", "localhost");
 define("DB_NAME", "task02");
