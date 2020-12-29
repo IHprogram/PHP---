@@ -11,7 +11,3 @@ $taro->$age = 25;
 
 echo $taro->name . "<br>";
 echo $taro->$age . "<br>";
-
-// echo $taro->__construct("1","2","3");
-
-$mizutani = new Mizutani();
