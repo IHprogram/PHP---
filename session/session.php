@@ -9,4 +9,4 @@ session_start();
 // 保存の仕方は「$_SESSION['キー'] = 値」
 $_SESSION["text"] = "セッションのテストです。";
 
-echo $_SESSION["text"];
+echo $_SESSION["text"];// → ブラウザには「セッションのテストです。」と表示される
