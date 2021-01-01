@@ -2,9 +2,18 @@
 
 <!DOCTYPE html>
 <?php
-    session_start();
-
     $errors = array();
+
+    session_start();
+    // 最初にこのページを訪問した時や、index.phpから来たときにセッション記録を破棄するために以下を追加
+    unset($_SESSION["username"], $_SESSION["pass"]);
+
+    // ↓ ここからは、CRSF対策で追加される部分
+    // まずはランダムな文字を生成する
+    $csrf_token = 'bb171c7c9483a9c8f947ab3ccdcda5e8';
+
+    // セッションに、上記のランダムな文字を記録しておく
+    $_SESSION['csrf_token'] = $csrf_token;
 
     if (isset($_POST["submit"])) {
 
